@@ -46,7 +46,7 @@ chrome.tabs.query({}, (tabs) => {
 
     tabs.forEach((tab) => {
     const tabId = tab.id;
-
+    
     if (tabActivity[tabId] && tabActivity[tabId].active) {
         const lastActiveTime = tabActivity[tabId].lastActiveTime;
         if (currentTime - lastActiveTime >= inactivityThreshold) {
