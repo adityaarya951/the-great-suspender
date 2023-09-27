@@ -46,12 +46,13 @@ chrome.tabs.query({}, (tabs) => {
 
     tabs.forEach((tab) => {
     const tabId = tab.id;
-    
+    // pausedtablist={};
     if (tabActivity[tabId] && tabActivity[tabId].active) {
         const lastActiveTime = tabActivity[tabId].lastActiveTime;
         if (currentTime - lastActiveTime >= inactivityThreshold) {
           // Tab has been inactive for the threshold duration, pause it
         chrome.tabs.sendMessage(tabId, { action: 'pauseTab' });
+        // pausedtablist
         tabActivity[tabId].active = false;
         }
     }
