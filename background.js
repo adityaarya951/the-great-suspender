@@ -58,3 +58,25 @@ chrome.tabs.query({}, (tabs) => {
     });
 });
 }, 10000); // Check every 10 seconds for inactivity
+
+// Listen for messages from the popup
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'resumeAllTabs') {
+        // Retrieve a list of all paused tabs (you may have your own mechanism to track them)
+        const pausedTabs = /* Logic to get the list of paused tabs */
+        
+        // Loop through the pausedTabs and resume each tab
+        pausedTabs.forEach(tab => {
+            chrome.tabs.update(tab.id, { active: true }, () => {
+                // Optional: You can add additional logic here if needed after resuming each tab.
+            });
+        });
+
+        // Optional: Clear your own data or tracking mechanism for paused tabs
+        /* Logic to clear the list of paused tabs */
+
+        // Send a response back to the popup (optional)
+        sendResponse({ message: 'Tabs resumed successfully' });
+    }
+});
+
