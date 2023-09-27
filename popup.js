@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const pausedTabsCount = document.getElementById('pausedTabsCount');
     const efficiencyIncrease = document.getElementById('efficiencyIncrease');
 
-    // Dummy data for paused tabs (replace with your data)
+    // Dummy data for paused tabs (replace )
     const pausedTabsData = [
-        { id: 1, title: 'Tab 1', efficiency: 10 }, // Example efficiency values (you can calculate actual values)
+        { id: 1, title: 'Tab 1', efficiency: 10 }, // Example 
         { id: 2, title: 'Tab 2', efficiency: 15 },
         { id: 3, title: 'Tab 3', efficiency: 20 }
     ];
